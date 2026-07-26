@@ -20,10 +20,10 @@ def add_video():
 
 def veiw_list():
     print("Here is your up-to-date list :-")
-    for index,vis in enumerate(videos, start=1):
-       print(f"{index}.{vis}")
+    for index,video in enumerate(videos, start=1):
+       print(index, video)
        print()
-       return main()
+    return main()
         
 
 def rename_video():
