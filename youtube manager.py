@@ -21,7 +21,15 @@ def Add_a_video():
     return main()
         
 def Rename_video():
-    pass
+    choose = int(input("Enter the index of video that you want to rename:"))
+    num = len(videos) - choose
+
+    if choose == len(videos)-num:
+       videos.remove(videos[choose - 1])
+       n = input("Enter the new name of video:")
+       t = input("Enter duration:")
+       videos.insert(choose-1,f"{n},Duration: {t}")
+    return main()
 
 def Delete_video():
     get_option = int(input("Enter the index of video that you want to delete:"))
@@ -46,15 +54,6 @@ def List():
     return main()
 
 def main():
-    # print("*"*100)
-    # print()
-    # x = "WELCOME TO THE YOUTUBE MANAGER"
-    # print(x.center(95))
-    # print("*"*100)
-    # print()
-    # print("""DESCRIPTION: In this tool we have given few services to enhance and improve your youtube journey.
-    #          To choose any function just enter the no alongside each option""")
-    # print()
     while True:
         print("1. Add a video")
         print("2. Rename a video")
