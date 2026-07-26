@@ -4,6 +4,7 @@ print("/"*75)
 print()
 welcome = "Youtube Manager"
 print(welcome.center(80))
+print()
 print("/"*75)
 print("This tool hepls you to organize your youtube videos!! Let's get started!!")
 print("/"*75)
@@ -52,7 +53,7 @@ def main():
         print("MAIN MENU")
         print("1. Add a youtube video")
         print("2. Veiw your list")
-        print("3.Rename a video in your list")
+        print("3. Rename a video in your list")
         print("4. Delete a video")
         print("5. Exit the tool")
        
