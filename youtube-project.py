@@ -10,6 +10,16 @@ print("This tool hepls you to organize your youtube videos!! Let's get started!!
 print("/"*75)
 print()
 
+
+def empty_fn(base_fn):
+   def new_fn():
+       if len(videos) == 0:
+           print("Your list is empty, pls add some videos!!")
+       else:
+           base_fn()
+
+
+@empty_fn
 def add_video():
     name = input("Enter your video name : ")
     time = input("Enter video time : ")
@@ -18,7 +28,7 @@ def add_video():
     print()
     return main()
     
-
+@empty_fn()
 def veiw_list():
     print("Here is your up-to-date list :-")
     for index,video in enumerate(videos, start=1):
@@ -26,7 +36,7 @@ def veiw_list():
        print()
     return main()
         
-
+@empty_fn()
 def rename_video():
     choice = int(input("Enter the index of the video to be renamed : "))
     new_name = input("Enter new name : ")
@@ -37,6 +47,7 @@ def rename_video():
     print()
     return main()
 
+@empty_fn()
 def delete_video():
     choice = int(input("Enter the index of the video to be deleted : "))
     videos.remove(videos[choice-1])
