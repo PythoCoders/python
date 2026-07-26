@@ -35,7 +35,7 @@ def veiw_list():
     print("Here is your up-to-date list :-")
     for index, video in enumerate(videos, start=1):
         print(index, video)
-        print()
+        
         
 @empty_fn
 def rename_video():
