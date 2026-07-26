@@ -12,31 +12,32 @@ print()
 
 
 def empty_fn(base_fn):
-   def new_fn():
-       if len(videos) == 0:
-           print("Your list is empty, pls add some videos!!")
-       else:
-           base_fn()
+    def new_fn(*args, **kwargs):
+        if len(videos) == 0:
+            print("Your list is empty, pls add some videos!!")
+            return None
+        return base_fn(*args, **kwargs)
+
+    return new_fn
+           
+    
 
 
-@empty_fn
 def add_video():
     name = input("Enter your video name : ")
     time = input("Enter video time : ")
     videos.append(f"{name}, Duration : {time}")
     print("Your video has been added to list!")
     print()
-    return main()
     
-@empty_fn()
+@empty_fn
 def veiw_list():
     print("Here is your up-to-date list :-")
-    for index,video in enumerate(videos, start=1):
-       print(index, video)
-       print()
-    return main()
+    for index, video in enumerate(videos, start=1):
+        print(index, video)
+        print()
         
-@empty_fn()
+@empty_fn
 def rename_video():
     choice = int(input("Enter the index of the video to be renamed : "))
     new_name = input("Enter new name : ")
@@ -45,15 +46,13 @@ def rename_video():
     videos.insert(choice-1, f"{new_name}, Duration : {new_time}")
     print("Your video has been renamed!")
     print()
-    return main()
 
-@empty_fn()
+@empty_fn
 def delete_video():
     choice = int(input("Enter the index of the video to be deleted : "))
     videos.remove(videos[choice-1])
     print("Your video has been deleted successfully!!")
     print()
-    return main()
 
 
         
@@ -74,13 +73,13 @@ def main():
 
         match choice:
             case "1":
-                return add_video()
+                add_video()
             case "2":
-                return veiw_list()
-            case "3" :
-                return rename_video()
+                veiw_list()
+            case "3":
+                rename_video()
             case "4":
-                return delete_video()
+                delete_video()
             case "5":
                 break
            
